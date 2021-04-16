@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: İletişim
+title: "Linux'a Dair"
 email: derslinux@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   Topluluğun gücü ile reklamsız ve ücretsiz 
@@ -39,7 +39,8 @@ highlighter: rouge
 collections:
   authors:
     output: true
-
+  egitimserisi:
+    output: true
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

@@ -4,7 +4,8 @@ author: taylan_ozgur_bildik
 title: ": (iki nokta üst üste) Komutu"
 modified: 2021-04-14
 excerpt: "Bash kabuğunda yerleşik olarak bulunan iki nokta üst üste komutunun açıklamasıdır."
-tags: [bash, bash builtin, yerleşik bash komutları] 
+tags: [bash, bash builtin, yerleşik bash komutları]
+categories: blog 
 ---
 
 İki nokta üst üste işareti, özel karakterler sınıfında yer alan ve özetle "**hiç bir şey yapma**" anlamına gelen yapıdır. Genel kullanım amacına bakıldığında tıpkı `true` komutu gibi "**doğru**" değeri döndürmek amacıyla kullanıldığını görebiliriz. Test etmek için yalnızca iki nokta üst üste karakterini komut satırımıza girelim ve hemen ardından çıkış değerini kontrol etmek için `echo $?` komutunu kullanalım. Ve benzerliği görmek adına `true` komutunu girip bu komutun da çıkış değerini görelim.

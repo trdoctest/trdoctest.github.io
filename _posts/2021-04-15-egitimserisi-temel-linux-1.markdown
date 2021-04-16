@@ -1,11 +1,12 @@
 ---
 layout: post
-title:  "forum.linux.web.tr"
+title:  "Temel Linux Ders 1"
 modified: 2021-04-15
 author: taylan_ozgur_bildik
 excerpt: "Harici kaynak olarak forum.linux.web.tr platformunu kısaca tanıyoruz."
-tags: [kaynaklar]
-categories: kaynaklar 
+tags: [linux nedir, linus torvalds, kernel, shell, açıkkaynak, özgür yazılım]
+categories: [egitimserisi, temel_linux]
+tutorial: 1 
 ---
 
 Bu platform kendi içinde temel Linux, docker, kubernates gibi pek çok Türkçe içeriği sunuyor. Üstelik tüm bunların yanında, topluluğun diğer üyeleri ile kolayca iletişim kurabilmeniz için sohbet kanalları da bulunuyor. Vakit ayırıp göz atmanız şiddetle tavsiye olunur. 

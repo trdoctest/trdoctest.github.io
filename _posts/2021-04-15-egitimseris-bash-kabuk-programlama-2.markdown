@@ -1,17 +1,18 @@
 ---
 layout: post
-title:  "Acikkaynakfikirler.com"
+title:  "Bash Kabuk Programlama 2. Ders"
 modified: 2021-04-15
 author: taylan_ozgur_bildik
-excerpt: "Harici kaynak olarak Acikkaynakfikirler.com platformunu kısaca tanıyoruz."
-tags: [kaynaklar]
-categories: kaynaklar 
+excerpt: "Harici kaynak olarak forum.linux.web.tr platformunu kısaca tanıyoruz."
+tags: [linux nedir, linus torvalds, kernel, shell, açıkkaynak, özgür yazılım]
+categories: [egitimserisi, bash_kabuk_programlama]
+tutorial: 2 
 ---
 
 Bu platform kendi içinde temel Linux, docker, kubernates gibi pek çok Türkçe içeriği sunuyor. Üstelik tüm bunların yanında, topluluğun diğer üyeleri ile kolayca iletişim kurabilmeniz için sohbet kanalları da bulunuyor. Vakit ayırıp göz atmanız şiddetle tavsiye olunur. 
 
 <div class="alert alert-primary" role="alert">
-Adres: <a href="https://acikkaynakfikirler.com/">acikkaynakfikirler.com</a>
+Adres: <a href="https://forum.linux.web.tr">forum.linux.web.tr</a>
 </div>
 
 <img src="{{ site.url }}/blog/img/acikkaynakfikirler.png" class="responsive">

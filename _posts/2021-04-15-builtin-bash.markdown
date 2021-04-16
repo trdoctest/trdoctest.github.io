@@ -4,7 +4,8 @@ title:  "builtin Komutu"
 modified: 2021-04-15
 author: taylan_ozgur_bildik
 excerpt: "Bash kabuğunda yerleşik olarak bulunan builtin komutunun kullanım açıklamasıdır."
-tags: [bash, bash builtin, yerleşik bash komutları] 
+tags: [bash, bash builtin, yerleşik bash komutları]
+categories: blog 
 ---
 
 Builtin kelimesi Türkçe olarak "yerleşik-dahili" anlamına geliyor ve bash kabuğu içerisinde halihazırda kullanılabilir olan araçları temsil etmek için kullanılıyor. Bash kabuğu üzerinde yerleşik olan komutları görmek için konsola `compgen -b` komutunu girebiliriz. 

@@ -4,7 +4,8 @@ title:  "[ ] (Köşeli Parantez) Komutu"
 modified: 2021-04-14
 excerpt: "Bash kabuğunda yerleşik olarak bulunan köşeli parantezin kullanım açıklamasıdır."
 tags: bash bash_builtin bash_yerleşik_komutlar 
-tags: [bash, bash builtin, yerleşik bash komutları] 
+tags: [bash, bash builtin, yerleşik bash komutları]
+categories: blog 
 ---
 
 Köşeli parantezler test komutu ile aynı görevi yerine getirebilir yani `test` komutu yerine kullanılabilir. Köşeli parantezler, içerisinde yer alan koşul durumunu test edip çıkış kodu olarak **0** veya **1** değerlerini döndürür. Yani köşeli parantezlerin kullanım amacı, içerisinde belirtilmiş olan koşulun sağlanıp sağlanmadığını test etmektir. Tek başına aşağıdaki şekilde kullanılabileceği gibi elbette koşullara bağlı çalışan yapılar kurarken `if/else` koşulu içerisinde de kullanılabilir. 
