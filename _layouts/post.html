@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+{% include head.html %}
+</head>
+<body>
+
+{% include nav-page.html %}
+      
+    <div class="container"> 
+		{% include meta-data.html %}	  
+		{{ content }}
+		{% include prev-next.html %}
+		{% include author-card.html %}				
+</div>
+
+{% include scripts.html %}	
+
+</body>
+
+</html>
