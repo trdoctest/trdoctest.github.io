@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "alias ve unalias Komutu"
-author: ahmet
+author: Taylan Özgür Bildik
 modified: 2021-04-14
 excerpt: "Bash kabuğunda yerleşik olarak bulunan alias ve unalias komutlarının açıklamasıdır."
 tags: [bash, bash builtin, yerleşik bash komutları] 

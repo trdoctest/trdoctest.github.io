@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  ". (nokta) & source Komutu"
-author: taylan_ozgur_bildik
+author: Ahmet
 modified: 2021-04-14
 excerpt: "Bash kabuğunda yerleşik olarak bulunan nokta ve source komutlarının açıklamasıdır."
 tags: [bash, bash builtin, yerleşik bash komutları] 

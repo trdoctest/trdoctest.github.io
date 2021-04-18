@@ -1,0 +1,50 @@
+---
+layout: simple
+search_omit: true
+---
+
+{% assign author = page %}
+<p></p>
+<div class="row">
+ <div class="col-md">
+<div class="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+			
+	  {% if author.avatar %}<div class="image"> <img src="{{ author.avatar }}" style="float: left; padding-right: 10px" class="rounded" > </div>{% endif %}
+	  
+				<a href="{{ author.link }}"><h4 id="yazar" >{{ author.name }}</h4></a>
+                <p class="card_u-text">{{ author.bio }}</p>
+				{% if author.email %}<a target="_blank" href="{{ author.email }}"><i class="fa fa-envelope fa-lg"></i></a>{% endif %}
+				{% if author.linkedin %}<a target="_blank" href="{{ author.linkedin }}"><i class="fa fa-linkedin fa-lg"></i></a>{% endif %}
+                {% if author.github %}<a target="_blank" href="{{ author.github }}"><i class="fa fa-github fa-lg"></i></a>{% endif %}
+				{% if author.twitter %}<a target="_blank" href="{{ author.twitter }}"><i class="fa fa-twitter fa-lg"></i></a>{% endif %}
+				<p class="card_u-text">Yazar hakkında bilgi almak ve diğer paylaşımlarına göz atmak için <a href="{{ site.url }}/yazar/{{ author.name }}.html">buradan</a> buyurun.  </p>
+           
+    </div>
+	</div>
+	</div>
+
+
+
+
+<h2>Yazarın Tüm Paylaşımları</h2>
+
+<div class="row mb-2">
+
+<div class="row mb-2">
+    {% assign filtered_posts = site.posts | where: 'author', page.name %}
+{% for post in filtered_posts %}
+		<div class="col-md-6">
+      <div class="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          
+		  <p class="text-primary"><i class="fa fa-calendar" aria-hidden="true"></i> {{ post.modified | date: "%d/%m/%Y" }}</p>
+          <h3 class="mb-0">{{ post.title }}</h3>
+          <p class="card-text mb-auto">{{ post.excerpt | remove: '\[ ... \]' | remove: '\( ... \)' | markdownify | strip_html | strip_newlines | escape_once }}</p>
+          <a href="{{ site.url }}{{ post.url }}" class=" stretched-link"></a>
+        </div>
+        
+      </div>
+    </div>
+	{% endfor %}
+	
+  </div>

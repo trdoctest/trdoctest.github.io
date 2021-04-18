@@ -1,6 +1,6 @@
 ---
 layout: post
-author: taylan_ozgur_bildik
+author: Ahmet
 title: ": (iki nokta üst üste) Komutu"
 modified: 2021-04-14
 excerpt: "Bash kabuğunda yerleşik olarak bulunan iki nokta üst üste komutunun açıklamasıdır."

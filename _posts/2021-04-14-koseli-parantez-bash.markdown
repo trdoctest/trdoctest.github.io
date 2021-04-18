@@ -2,6 +2,7 @@
 layout: post
 title:  "[ ] (Köşeli Parantez) Komutu"
 modified: 2021-04-14
+author: Ahmet
 excerpt: "Bash kabuğunda yerleşik olarak bulunan köşeli parantezin kullanım açıklamasıdır."
 tags: bash bash_builtin bash_yerleşik_komutlar 
 tags: [bash, bash builtin, yerleşik bash komutları]

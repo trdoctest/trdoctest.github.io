@@ -1,13 +1,16 @@
 <p></p>		  
 <i class="fa fa-tags" aria-hidden="true"></i>
-          {% for tag in page.tags %}<a href="{{ site.url }}/liste/liste.html#{{ tag }}" class="btn btn-outline-primary btn-sm" title="Pages tagged {{ tag }}">{{ tag }}</a> {% endfor %}  		  
+          {% for tag in page.tags %}<a href="{{ site.url }}/liste.html#{{ tag }}" class="btn btn-outline-primary btn-sm" title="Pages tagged {{ tag }}">{{ tag }}</a> {% endfor %}  		  
 		  <h1 id="-nokta-komutu">{{ page.title }}</h1>
 
 		  <h6 id="meta-da">
 			
 		  <i class="fa fa-calendar" aria-hidden="true"></i> {{ page.modified | date: "%d/%m/%Y" }}
-			
-		   {% if author %}<i class="fa fa-user" aria-hidden="true"></i><a href="{{ site.url }}/author/{{ author.name }}.html"> {{ author.name }}</a>{% endif %}
+
+		   {% assign author = site.authors | where: 'name', page.author | first %}
+{% if author %}
+  <i class="fa fa-user" aria-hidden="true"></i><a href="{{ author.url }}"> {{ author.name }}</a>
+{% endif %}
 		 
 		  {% if site.owner.disqus-shortname and page.comments or site.comments %}<span class="entry-comments"><i class="fa fa-comment"></i> <a href="#disqus_thread">Yorumlar</a>{% endif %}
 		  

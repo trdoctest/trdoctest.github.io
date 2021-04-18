@@ -5,10 +5,8 @@ author: taylan_ozgur_bildik
 excerpt: "Linux Dersleri platformuna yazar olarak nasıl katkıda bulunabileceğinizi ele alıyoruz."
 ---
 
-<body id="body" class="dark-mode">
-	
+
 <ul class="nav nav-tabs nav-justified navbar-expand-lg md-tabs bg-light indigo" id="myTabmobile" role="tablist">
-	<a href="./menu.html" class="btn navbar-toggler"><i class="fa fa-home fa-lg"></i></a>
   <li class="nav-item">
     <a class="navbar-toggler nav-link active" id="home-tab-just" data-toggle="tab" href="#home-just" role="tab" aria-controls="home-just" aria-selected="true"><i class="fa fa-linux"></i></a>
   </li>
@@ -18,11 +16,10 @@ excerpt: "Linux Dersleri platformuna yazar olarak nasıl katkıda bulunabileceğ
   <li class="nav-item">
     <a class="navbar-toggler nav-link" id="contact-tab-just" data-toggle="tab" href="#contact-just" role="tab" aria-controls="contact-just" aria-selected="false"><i class="fa fa-info-circle"></i></a>
   </li>
-	<a href="./bildirim.html" class="btn navbar-toggler"><i class="fa fa-paper-plane fa-lg"></i></a>
 </ul>
 	
 <ul class="nav x-navbar nav-tabs nav-justified md-tabs bg-light indigo" id="myTabdesktop" role="tablist">
-	<a href="./menu.html" class="btn"><i class="fa fa-home fa-lg"></i></a> 
+
   <li class="nav-item">
     <a class="nav-link active" id="home-tab-desktop" data-toggle="tab" href="#home-just" role="tab" aria-controls="home-just" aria-selected="true"><i class="fa fa-linux"></i> Proje</a>
   </li>
@@ -32,7 +29,6 @@ excerpt: "Linux Dersleri platformuna yazar olarak nasıl katkıda bulunabileceğ
   <li class="nav-item">
     <a class="nav-link" id="contact-tab-desktop" data-toggle="tab" href="#contact-just" role="tab" aria-controls="contact-just" aria-selected="false"><i class="fa fa-info-circle"></i> Sürüm Notları</a>
   </li>
-	<a href="./bildirim.html" class="btn"><i class="fa fa-paper-plane fa-lg"></i></a>
 </ul>
 
 <div class="tab-content card pt-3" id="myTabContentJust">
@@ -301,14 +297,4 @@ excerpt: "Linux Dersleri platformuna yazar olarak nasıl katkıda bulunabileceğ
   </div>
 	<p></p>
 </div>
-	<p>&nbsp;</p>
 
-<script src="./js/main.js"></script>	
-<script src="./js/jquery-3.3.1.slim.min.js"></script>
-<script src="./js/script.js"></script>		
-<script src="./js/bootstrap.min.js"></script>
-
-
-
-
-</body>

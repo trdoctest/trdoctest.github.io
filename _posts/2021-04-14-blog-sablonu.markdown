@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Ben Blog Şablonunun Başlığıyım"
-author: taylan_ozgur_bildik #yazar ismi doğru biçimde belirtilmelidir.
+author: Ahmet #yazar ismi doğru biçimde belirtilmelidir.
 modified: 2021-04-14 #Blog içeriğinin düzenlendiği tarih uygun şekilde belirtilmelidir.
 excerpt: "Bu alan, blog paylaşımı hakkında kısa özeti içerir. Mümkünse bu özet alanı 30 kelimeyi geçmemelidir."
 tags: [bash, bash builtin, yerleşik bash komutları] # köşeli parantez içinde virgülle ayırarak etkiketler kullanılmalıdır.

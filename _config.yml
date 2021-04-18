@@ -39,8 +39,34 @@ highlighter: rouge
 collections:
   authors:
     output: true
-  egitimserisi:
+  kaynaklar:
     output: true
+  egitim:
+    output: true
+
+defaults:
+- scope:
+    path: ''
+    type: authors
+  values:
+    permalink: "/authors/:name/"
+    layout: author
+    twitter:
+- scope:
+    path: ''
+    type: kaynaklar
+  values:
+    permalink: "/kaynaklar/:title/"
+    layout: title
+    twitter:
+- scope:
+    path: ''
+    type: egitim
+  values:
+    permalink: "/egitim/:title/"
+    layout: title
+    twitter:     
+    
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

@@ -2,7 +2,7 @@
 layout: post
 title:  "bg Komutu"
 modified: 2021-04-15
-author: taylan_ozgur_bildik
+author: Taylan Özgür Bildik
 excerpt: "Bash kabuğunda yerleşik olarak bulunan bg komutunun kullanım açıklamasıdır."
 tags: [bash, bash builtin, yerleşik bash komutları]
 categories: blog 

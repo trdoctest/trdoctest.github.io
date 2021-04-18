@@ -2,7 +2,7 @@
 layout: post
 title:  "builtin Komutu"
 modified: 2021-04-15
-author: taylan_ozgur_bildik
+author: Ahmet
 excerpt: "Bash kabuğunda yerleşik olarak bulunan builtin komutunun kullanım açıklamasıdır."
 tags: [bash, bash builtin, yerleşik bash komutları]
 categories: blog 
