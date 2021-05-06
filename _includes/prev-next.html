@@ -1,0 +1,23 @@
+<p></p>
+	<div class="row mb-2">
+	{% if page.previous %}
+    <div class="col-md">
+      <div class="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+	  <div class="col p-4 d-flex flex-column position-static">
+        <a>Önceki: {{ page.previous.title }}</a>
+        </div>
+      </div>
+	  <a href="{{ site.url }}{{ page.previous.url }}" title="{{ page.previous.title }}" class=" stretched-link"></a>
+    </div>
+	{% endif %}
+	{% if page.next %}
+		<div class="col-md">
+      <div class="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+	  <div class="col p-4 d-flex flex-column position-static">
+        <a>Sonraki: {{ page.next.title }}</a>
+        </div>
+      </div>
+	  <a href="{{ site.url }}{{ page.next.url }}" title="{{ page.next.title }}" class=" stretched-link"></a>
+    </div>
+    {% endif %}
+  </div>

@@ -1,0 +1,86 @@
+---
+layout: post
+title:  "bg Komutu"
+modified: 2021-04-15
+author: Taylan Özgür Bildik
+excerpt: "Bash kabuğunda yerleşik olarak bulunan bg komutunun kullanım açıklamasıdır."
+tags: [bash, bash builtin, yerleşik bash komutları, yeni]
+categories: blog 
+---
+
+
+
+`bg` komutu ingilizce "**background**" yani "**arkaplan**" anlamına gelen ifadenin kısaltmasıdır. Görevi, çalışmakta olan süreçlerin arkaplana alınmasıdır.  Eğer komut satırımız üzerinden tek bir süreç başlattıysak, bu sürecin ***Ctrl + Z*** tuşlaması ile durdurulmasını ve ardından `bg` komutu ile arkaplana alınması mümkündür. Hemen kullanımını test etmek için `sleep 150` komutu ile 150 saniye boyunca çalışacak bir süreç başlatalım. Daha sonra bu süreci ***Ctrl + Z*** tuşlaması ile duraklatalım. Duraklatma işleminin ardından `bg` komutunu girdiğimizde bu süreç arkaplanda çalışmaya devam edecek.
+
+```bash
+taylan@taylan:~$ sleep 150
+^Z
+[1]+  Durdu                   sleep 150
+taylan@taylan:~$ bg
+[1]+ sleep 150 &
+taylan@taylan:~$
+```
+
+Süreçleri neden arkaplanda çalıştırmaya ihtiyaç duyalım ki diye düşünmüş olabilirsiniz. Arkaplanda çalıştırma olanağının katkısını anlamak için konsoluna `sleep` gibi belirtilen süre boyunca devam eden bir komut girip, bu komutun arından konsola yeni komutlar girmeyi deneyebilirsiniz. Bu deneyin sonucunda, konsol `sleep` komutu ile meşgul olacağı için sizler `sleep` sürecini arkaplanda çalışacak şekilde ayarlamadığınız sürece konsola yeni komut girişi yapamazsınız.
+
+Birden fazla süreci arkaplanda çalışacak şekilde ayarlamak istediğimizde biraz daha farklı bir kullanıma ihtiyacımız oluyor. Denemek için ben yine `sleep` komutu ile 4 tane süreç oluşturup bu süreçleri ***Ctrl + Z*** tuşlaması ile duraklatıyorum. Süreçlerimizin durumunu `jobs` komutu ile kontrol edebiliriz. 
+
+```bash
+taylan@taylan:~$ sleep 100
+^Z
+[1]+  Durdu                   sleep 100
+taylan@taylan:~$ sleep 101
+^Z
+[2]+  Durdu                   sleep 101
+taylan@taylan:~$ sleep 102
+^Z
+[3]+  Durdu                   sleep 102
+taylan@taylan:~$ sleep 103
+^Z
+[4]+  Durdu                   sleep 103
+taylan@taylan:~$ jobs
+[1]   Durdu                   sleep 100
+[2]   Durdu                   sleep 101
+[3]-  Durdu                   sleep 102
+[4]+  Durdu                   sleep 103
+taylan@taylan:~$
+```
+
+`jobs` komutunun çıktılarından da görülebileceği gibi başlatmış olduğumuz tüm `sleep` süreçlerini duraklatmış olduk. Şimdi bu süreçlerin arkaplanda çalışmaya devam edebilmesi için `jobs` çıktısında sol tarafta yer alan iş numaralarını `bg %iş_numarası` şeklinde belirtmemiz gerekiyor. Örneğin ben `sleep 100` sürecini arkaplanda çalışacak şekilde ayarlamak istersem konsola `bg %1` komutunu girmem yeterli. 
+
+```bash
+taylan@taylan:~$ bg %1
+[1] sleep 100 &
+taylan@taylan:~$ jobs
+[1]   Çalışıyor           sleep 100 &
+[2]   Durdu                   sleep 101
+[3]-  Durdu                   sleep 102
+[4]+  Durdu                   sleep 103
+taylan@taylan:~$
+```
+
+`jobs` komutunun çıktılarında iş numarasının yan tarafında **+** ve **-** işaretlerini fark etmişsinizdir. Artı işareti en son durdurulan süreci temsil ediyorken, eksi işareti ise en sondan bir öncekini temsil ediyor. Bu sayede bizler iş numarasını girmeden arkaplana almak istediğimiz süreci artı ya da eski sembolü ile belirtebiliyoruz. Örneğin ben en son durdurmuş olduğum süreci arkaplana almak istersem `bg %+` komutunu ya da `bg %%` komutunu girmem yeterli. Benzer şekilde eğer sondan bir önceki süreci arkaplana almak istersek de bu sefer `bg %-` komutunu kullanabiliriz. Tüm bunlar ile uğraşmak istemezseniz ayrıca çalıştırmış olduğunuz sürecin komut ismini girmeniz de yeterlidir. Örneğin ben `sleep 999` komutu ile yeni bir süreç başlattığımda bu süreci ***Ctrl + Z*** tuşlaması ile durdurup `bg %"sleep 999"` komutu ile arkaplana alabiliyorum.
+
+Eğer henüz süreci başlatmadan önce sürecimizi doğrudan arkaplanda çalıştırmak istersek, komutumuzun sonuna "**ve**" yani `&` işaretini eklememiz yeterli. Hemen denemek üzere `sleep 150 &` komutunu girip daha sonra `jobs` komutu ile sürecin durumunu teyit edebiliriz.
+
+```bash
+taylan@taylan:~$ sleep 150 &
+[1] 2138
+taylan@taylan:~$ jobs
+[1]+  Çalışıyor           sleep 150 &
+taylan@taylan:~$
+```
+
+Sürecimizi çalıştırdıktan sonra konsolumuza jobs komutunu girebildik çünkü ilk süreç doğrudan arkaplanda başlatıldı. Zaten `jobs` komutu da bu sürecin arkaplanda çalışmakta olduğunu sürecin yanındaki " `&` " işareti ile belirtiyor.
+
+# Özet
+
+Süreci arkaplana almak için aşağıdaki yöntemleri kullanabiliyoruz.
+
+`bg %iş_numarası` : iş numarası ile süreci arkaplana almayı sağlar.
+
+`bg %komut` : sürecin çalıştırıldığı komutu belirterek süreci arkaplana almayı sağlar.
+
+`bg %+` ya da `%%` : her iki kullanım da en son durdurulmuş olan sürecin arkaplana alınmasını sağlar.
+
+`bg %-` : sondan bir önceki süreci arkaplana almayı sağlar.

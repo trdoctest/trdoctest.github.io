@@ -1,0 +1,1 @@
+blog yazılarında içerik menüsü için "content menu" "toc menu" gibi arama yap. Github'un kendi kullandığı menu çok şık. Herhangi bir md dosyasını görüntülerken bu menu sol üstte açılıyor.
