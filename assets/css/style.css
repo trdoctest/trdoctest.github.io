@@ -110,15 +110,6 @@ body{
 	color:var(--font-color);
 	
 }
-.nav-link{
-	color:var(--font-color);
-	
-}
-{
-	background-color:var(--background);
-	color:var(--font-color);
-	
-}
 
 .bg-baslık{
 	background-color:var(--foreground);	
@@ -257,9 +248,3 @@ body{
   display: none;
 }
 
-
-	 
-	
-	
-
-		
