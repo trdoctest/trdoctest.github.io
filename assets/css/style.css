@@ -107,7 +107,7 @@
 	background-color:var(--foreground)!important;
 }
 
-.nav-link.active{
+.nav-link{
 	background-color:var(--foreground)!important;
     color:var(--font-color)!important;	
 }	
