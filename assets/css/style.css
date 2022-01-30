@@ -120,6 +120,9 @@ body{
 	color:var(--font-color);
 }
 
+.container{
+	font-size: 1.25rem;
+}
 
 .bg-baslık{
 	background-color:var(--foreground);	
