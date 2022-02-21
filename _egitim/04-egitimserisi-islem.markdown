@@ -1,7 +1,6 @@
 ---
 layout: tutorial
 title:  "4. Ders: İşlem"
-modified: 2022-04-15
 author: Taylan Özgür Bildik
 excerpt: "Eğitimin giriş aşamasını gerçekleştirerek, GNU/Linux sistemini tanıyoruz."
 tags: [Linux , çekirdek , kernel , linus torvalds , gnu , gpl , açık kaynak , özgür yazılım , unix , dağıtım]
@@ -13,10 +12,9 @@ tutorial: [4]
 
 Bu bölümde "process" olarak geçen "işlem" kavramının anlaşılması ve yönetilebilmesi üzerinde duracağız. Öncelikle isim tanımı ile başlayacak olursak. Kimi zaman "process" terimi için Türkçe olarak "süreç" ifadesi hatta doğrudan "proses" kullanılsa da, terimin yapısı gereği "işlem" ifadesi daha doğru bir tanımlama olacaktır. Ben de anlatımlar sırasında "process" kavramı için "işlem" ifadesini kullanıyor olacağım. Bu açıklamayı, harici Türkçe kaynaklara göz attığınızda "işlem" yerine "süreç" ya da "proses" ifadeleriyle karşılaşmanız halinde herhangi bir karışıklık yaşamamanız için kısaca dile getirmek istedim. 
 
-<aside>
+
 ℹ️ Hatırlatma**:** Anlatımlara geçmeden peşinen söyleyeyim; Buradaki anlatımları yalnızca temel sistem yönetimi kapsamında ele alıyor olacağız. Daha fazla detay için elbette işletim sistemi özelinde harici kaynaklara(işletim sistemi nasıl çalışır? işletim sistemi nasıl programlanır ? vb.) kaynaklara göz atabilirsiniz. Anlatımlar sırasında mümkün oldukça temelden başlayıp konu bağlamından uzaklaşmamaya ve gerekli olan bilgileri aktarmaya özen göstereceğiz. Yani aslında anlatımların herkes tarafından kolay takip edilebilir olması için Linux'ta bash kabuğu üzerinden işlemlerin nasıl yönetilebileceği hakkında fikir edinmeye çalışacağız.
 
-</aside>
 
 Bu bölümün sonunda, şu ana kadar ele aldığımız ve ileride ele alacağımız pek çok kavramın bizler için daha anlamlı hale geleceğini umuyorum. Çok ayrıntılı olmasa da **genel işleyişi kavramamıza yardımcı olacak temel bilgilere** değiniyor olacağız. O halde daha fazla vakit kaybetmeden, anlatımlara "işlem" yani "process" olarak geçen kavramın tanımı ile başlayabiliriz.
 
@@ -293,21 +291,21 @@ Komutun standart çıktısını önceki komuta aktarmak için `<(komut)`
 
 Bir önceki komutun standart çıktısını standart girdi olarak kullanmak için `>(komut)` yapısı kullanılır.
 
-```
+`
 $ cat <(date)
 Thu Jul 21 12:40:53 EEST 2011
-```
+`
 
 Aslında bir STDIN akışı verilmek yerine, cat'e açılması ve okunması gereken bir dosyanın adı verildi. Bunu test etmek için cat yerine echo komutunu kullanabiliriz.
 
-```
+`
 $ echo <(date)
 /proc/self/fd/11
-```
+`
 
 cat dosya adını aldığında, dosyanın içeriğini bizim için okudu. Öte yandan, echo bize iletildiği dosyanın adını gösterdi. Daha fazla ikame eklerseniz bu fark daha belirgin hale gelir:
 
-```
+`
 $ cat <(date) <(date) <(date)
 Thu Jul 21 12:44:45 EEST 2011
 Thu Jul 21 12:44:45 EEST 2011
@@ -315,21 +313,21 @@ Thu Jul 21 12:44:45 EEST 2011
 
 $ echo <(date) <(date) <(date)
 /proc/self/fd/11 /proc/self/fd/12 /proc/self/fd/13
-```
+`
 
 İşlem değiştirmeyi (bir dosya oluşturan) ve giriş yeniden yönlendirmesini (bir dosyayı STDIN'e bağlayan) birleştirmek mümkündür:
 
-```
+`
 $ cat < <(date)
 Thu Jul 21 12:46:22 EEST 2011
-```
+`
 
 Hemen hemen aynı görünüyor ama bu sefer kedi bir dosya adı yerine STDIN akışından geçti. Bunu echo ile deneyerek görebilirsiniz:
 
-```
+`
 $ echo < <(date)
 <blank>
-```
+`
 
 echo STDIN'i okumadığından ve hiçbir argüman iletilmediği için hiçbir şey alamıyoruz.
 
@@ -343,18 +341,18 @@ Bu özelliğin en yaygın kullanımlarından biri, geçici dosyaların oluşturu
 
 Örneğin aşağıdaki iki komut aynı görevi yapar
 
-```jsx
+`jsx
 diff <(sort list1) <(sort list2)
-```
+`
 
-```jsx
+`jsx
 mkfifo /var/tmp/fifo1
 mkfifo /var/tmp/fifo2
 sort list1 >/var/tmp/fifo1 &
 sort list2 >/var/tmp/fifo2 &
 diff /var/tmp/fifo1 /var/tmp/fifo2
 rm /var/tmp/fifo1 /var/tmp/fifo2
-```
+`
 
 <(...) ve >(...) arasındaki fark, yalnızca yönlendirmelerin hangi yolla yapıldığıdır. <(...) ile birinin ikameden okuması beklenir ve komut bunu stdout olarak kullanmak üzere ayarlanır. >(...) ile birinin ikameye yazması beklenir ve içindeki komut onu stdin olarak kullanmak üzere ayarlanır.
 
