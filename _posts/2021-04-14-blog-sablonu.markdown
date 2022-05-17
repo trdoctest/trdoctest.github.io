@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: b-post
 title:  "Ben Blog Şablonunun Başlığıyım"
 author: Ahmet #yazar ismi doğru biçimde belirtilmelidir.
 modified: 2021-04-14 #Blog içeriğinin düzenlendiği tarih uygun şekilde belirtilmelidir.

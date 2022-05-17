@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: b-post
 author: Ahmet
 title: ": (iki nokta üst üste) Komutu"
 modified: 2021-04-14

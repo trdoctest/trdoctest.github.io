@@ -12,4 +12,7 @@ Bu işlemlerin arından Linux Dersleri platformunda gözükecek profilinizi düz
 Bu adımın ardından blog içinde paylaşım yapmak üzere aşağıdaki rehberi takip edebilirsiniz. Rehberi okumadan içerik paylaşmayın lütfen. Rehber, platformun düzenini korumak adına uyumlası gereken temel kurallardan bahsediyor.
 
 
-
+# Kurallar
+- İçerik paylaşımları gönüllülük esaslıdır. Eğer maddi kazanç beklentiniz varsa farklı bir platorma göz atabilirsiniz. Mevcut platform reklam alma
+- Özellikle herhangi bir ürünün reklam veya tanıtımı için hazırlanmış içerikler yayınlanmaz.
+- Platform 

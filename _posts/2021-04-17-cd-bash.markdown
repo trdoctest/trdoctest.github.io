@@ -1,0 +1,169 @@
+---
+layout: b-post
+title:  "cd Komutu"
+modified: 2021-04-16
+author: Taylan Özgür Bildik
+excerpt: "Bash kabuğunda yerleşik olarak bulunan builtin komutunun kullanım açıklamasıdır."
+tags: [bash, bash builtin, yerleşik bash komutları]
+categories: blog 
+---
+
+İngilizce olarak "**c**hange **d**irectory" yani "dizin değiştir" anlamına gelen ifadenin kısaltmasından gelen komuttur. Konsol üzerinden dizinler arasında geçiş yapmak için kullanırız. Pek çok farklı kullanım seçeneği vardır en temel kullanımı `cd` komutunu ardından geçiş yapılmak istenen dizin konumun belirtilmesidir.  Örneğin ben ev dizinimde bulunurken, **/usr/bin/** dizinine geçmek istersem konsola `cd /usr/bin` komutunu girmem yeterli oluyor.
+
+```bash
+taylan@taylan:~$ cd /usr/bin/
+taylan@taylan:/usr/bin$
+```
+
+Ayrıca `cd` komutunun birden fazla kullanım seçeneği de bulunuyor. 
+
+Herhangi bir konumdayken ev dizinimize(/home/kullanıcı-adı) dönmek için yalnızca `cd` komutunu kullanmamız yeterli. Bulunduğumuz konumu `pwd` (**p**rint **w**orking **d**irectory - çalışma dizinini yazdır) komutu ile teyit edebiliriz.
+
+```bash
+taylan@taylan:/usr/bin$ cd
+taylan@taylan:~$ pwd
+/home/taylan
+taylan@taylan:~$
+```
+
+Yalnızca `cd` komutunu kullanmaya benzer şekilde ev dizinimizi temsil eden tilde `~` (Türkçe q klavyede **AltGr+ü** kombinasayonu ile oluşturulabilir.) işaretini `cd` komutu ile birlikte kullanarak hangi konumda olursak olalım ev dizinimize dönebiliriz. 
+
+```bash
+taylan@taylan:/usr/bin$ cd ~
+taylan@taylan:~$ pwd
+/home/taylan
+taylan@taylan:~$
+```
+
+Eğer çalışmakta olduğumuz dizinden bir üst dizine dönmek istersek bu işlem için iki nokta işaretini kullanabiliriz. 
+
+```bash
+taylan@taylan:/usr/share/libdrm$ cd ..
+taylan@taylan:/usr/share$ cd ..
+taylan@taylan:/usr$ cd ..
+taylan@taylan:/$
+```
+
+Ayrıca dönmek istediğimiz dizin daha üst klasörlerde ise, birden fazla kullanımı ile daha üst dizinlere dönmemiz mümkündür. 
+
+```bash
+taylan@taylan:/usr/share/libdrm$ cd ../../../
+taylan@taylan:/$ pwd
+/
+taylan@taylan:/$
+```
+
+Elbette dizinler arasını slash `/` işareti ile belirtmemiz de önemli bir detay. Slash işareti dizin yolunun en başında kullanıldığında kök dizini yani Linux dosya sistemi hiyerarşisinin en tepesini temsil ediyor. Linux sistemlerinde sistem dosyaları da dahil tüm alt dizinler kök dizini altında oluşturulur. Örneğin biz `cd /home/taylan/Desktop` şeklinde komut girdiğimizde bu komutun en başındaki slash karakteri kök dizinini temsil ederken, diğer slash karakterleri yalnızca klasörler arasındaki geçişi temsil ediyor. Bu sebeple eğer gitmek istediğiniz dizin adresi kök klasörden devam etmiyorsa en başa slash işareti koymayın. Örneğin ben ev dizinimdeyken(/home/taylan : "**kök"** altındaki "**home"** klasörünün içindeki "**taylan"** dizinindeyim.) masaüstü konumuna gitmek istersem konsola `cd Desktop` komutunu girmem yeterli. 
+
+```bash
+taylan@taylan:~$ pwd
+/home/taylan
+taylan@taylan:~$ cd Desktop/
+taylan@taylan:~/Desktop$ pwd
+/home/taylan/Desktop
+taylan@taylan:~/Desktop$
+```
+
+Şayet `cd /Desktop` komutunu girersem konsol bana böyle bir dizinin bulunmadığını bildirecektir. 
+
+```bash
+taylan@taylan:~$ pwd
+/home/taylan
+taylan@taylan:~$ cd /Desktop
+bash: cd: /Desktop: Böyle bir dosya ya da dizin yok
+taylan@taylan:~$
+```
+
+Çünkü benim yazmış olduğum komut ilk önce "**kök**" dizine gidiyor daha sonra kök dizini altında "**Desktop**" klasörünü arıyor. Ancak kök klasörü altında böyle bir dosya bulunmuyor. Bu durum da `cd` komutunu kullanırken yeni başlayan kullanıcıların en sık yaptığı hatalardan biridir. Teyit etmek için kök dizini altında yer alan dosyaları `ls` komutu ile listeleyebilirsiniz.
+
+```bash
+taylan@taylan:/$ pwd
+/
+taylan@taylan:/$ ls
+bin   etc         initrd.img.old  libx32      mnt   root  srv  usr       vmlinuz
+boot  home        lib             lost+found  opt   run   sys  var       vmlinuz.old
+dev   initrd.img  lib64           media       proc  sbin  tmp  VBox.log
+taylan@taylan:/$
+```
+
+Sürekli iki dizin arasında hızlı geçişler yapmamız gerekiyorsa `cd` komutuna ek olarak kısa çizgi `-` işaretini de kullanabiliriz. Bu sayede bulunduğumuz dizin ile daha önce bulunduğumuz dizin arasında hızlı geçişler yapabiliriz.
+
+```bash
+taylan@taylan:~$ pwd
+/home/taylan
+taylan@taylan:~$ cd /etc/apt/
+taylan@taylan:/etc/apt$ cd -
+/home/taylan
+taylan@taylan:~$ cd -
+/etc/apt
+taylan@taylan:/etc/apt$ cd -
+/home/taylan
+taylan@taylan:~$
+```
+
+Gitmek istediğimiz dizinin klasör adında boşluk varsa, gidilecek konum mutlaka tek ya da çift parantez içerisinde yazılmalıdır. Aksi halde kabuk bizim birden fazla dizine aynı anda gitmek istediğimi düşünüp hatalı komut kullanımı konusunda bizi uyaracaktır.
+
+```bash
+taylan@taylan:~$ cd Yeni Dizin
+bash: cd: çok fazla argüman
+taylan@taylan:~$ cd "Yeni Dizin"
+taylan@taylan:~/Yeni Dizin$ cd ..
+taylan@taylan:~$ cd 'Yeni Dizin'
+taylan@taylan:~/Yeni Dizin$
+```
+
+Tırnak içinde yazma işlemi dışında klasör isimlerinde yer alan boşluk karakterinin yanına kaçış karakteri olan ters slash `\` karakteri kullanılarak da hata almaktan kaçınılabilir. 
+
+```bash
+taylan@taylan:~$ cd Yeni\ Dizin
+taylan@taylan:~/Yeni Dizin$
+```
+
+Buradaki ters slash `\` kaçış karakteri, burada yer alan boşluk karakterinin dosya ismi olduğunu kabuğa ifade edebilmemiz sağlıyor.
+
+Pek kullanılmıyor olsa da ayrıca `cd` komutunun seçeneklerine de kısaca göz atalım.
+
+## Seçenekler
+
+## L
+
+Sembolik bağlantıya sahip olan dizinde sembolik olan klasöre geçiş yapmamızı sağlar. Denemek için öncelikle sembolik link oluşturalım ve oluşturduğumuz sembolik link dizinine geçiş yapmayı deneyelim.
+
+```bash
+taylan@taylan:~/Belgeler$ ln -s /etc/apt/ apt-kısayol
+taylan@taylan:~/Belgeler$ ls -l
+toplam 0
+lrwxrwxrwx 1 taylan taylan 9 Eyl  5 18:34 apt-kısayol -> /etc/apt/
+taylan@taylan:~/Belgeler$ cd -L apt-kısayol
+taylan@taylan:~/Belgeler/apt-kısayol$ pwd
+/home/taylan/Belgeler/apt-kısayol
+taylan@taylan:~/Belgeler/apt-kısayol$
+```
+
+Bu seçenek `cd` komutunda varsayılan olarak kullanılıyor yani özellikle -L şeklinde belirtilmesi de gerekmez. 
+
+```bash
+taylan@taylan:~/Belgeler$ cd apt-kısayol
+taylan@taylan:~/Belgeler/apt-kısayol$ pwd
+/home/taylan/Belgeler/apt-kısayol
+taylan@taylan:~/Belgeler/apt-kısayol$
+```
+
+## P
+
+Sembolik bağlantıları bulunan dizinlerin doğrudan fiziksel konumlarına geçiş yapar. Yani "L" seçeneğinin tersi şekilde çalışır.
+
+```bash
+taylan@taylan:~/Belgeler$ ls -l
+toplam 0
+lrwxrwxrwx 1 taylan taylan 9 Eyl  5 18:34 apt-kısayol -> /etc/apt/
+taylan@taylan:~/Belgeler$ cd -P apt-kısayol
+taylan@taylan:/etc/apt$ pwd
+/etc/apt
+taylan@taylan:/etc/apt$
+```
+
+<aside>
+⚠️ **Not:** Seçenek açıklamalarında geçen sembolik link kavramını anlamadıysanız lütfen "sembolik link" açıklamasına göz atıp buradaki örnekleri tekrar gözden geçirin.
+
+</aside>

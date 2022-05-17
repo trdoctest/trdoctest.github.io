@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: b-post
 title:  "[ ] (Köşeli Parantez) Komutu"
 modified: 2021-04-14
 author: Ahmet
@@ -17,7 +17,7 @@ Köşeli parantezler test komutu ile aynı görevi yerine getirebilir yani `test
 
 ```bash
 $ [ -f ~/.bashrc ]
-$ echo $?
+categories: blog$ echo $?
 0         # Çıktı "0" yani "hatasız" çıkış kodu olduğu için dosya var.
 ```
 
@@ -25,7 +25,7 @@ $ echo $?
 
 ```bash
 $ [ -f ~/.olmayan-dosya]
-$ echo $?
+categories: blog$ echo $?
 1         # Çıktı "1" yani "hatalı" çıkış kodu olduğu için dosya yok.
 ```
 

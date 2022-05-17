@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: b-post
 title:  ". (nokta) & source Komutu"
 author: Ahmet
 modified: 2021-04-14

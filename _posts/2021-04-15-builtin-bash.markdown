@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: b-post
 title:  "builtin Komutu"
 modified: 2021-04-15
 author: Ahmet
